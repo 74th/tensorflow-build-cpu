@@ -34,6 +34,15 @@ export TF_SET_ANDROID_WORKSPACE=0
 
 export GCC_HOST_COMPILER_PATH=$(which gcc)
 export CC_OPT_FLAGS="-march=native"
-#bazel clean
+bazel clean
 ./configure
-bazel build -c opt --copt=-mfpmath=both --copt=-mavx --copt=-msse4.1 --copt=-msse4.2 //tensorflow/tools/pip_package:build_pip_package
+bazel build -c opt \
+	--copt=-mfpmath=both \
+	--copt=-mavx \
+	--copt=-mavx2 \
+	--copt=-mfma \
+	--copt=-msse4.1 \
+	--copt=-msse4.2 \
+	//tensorflow/tools/pip_package:build_pip_package
+mkdir -p out
+bazel-bin/tensorflow/tools/pip_package/build_pip_package out/tensorflow_pkg
