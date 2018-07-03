@@ -45,4 +45,4 @@ bazel build -c opt \
 	--copt=-msse4.2 \
 	//tensorflow/tools/pip_package:build_pip_package
 mkdir -p out
-bazel-bin/tensorflow/tools/pip_package/build_pip_package out/tensorflow_pkg
+./bazel-bin/tensorflow/tools/pip_package/build_pip_package ../out/tensorflow_pkg

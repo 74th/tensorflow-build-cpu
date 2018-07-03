@@ -28,5 +28,5 @@ RUN git clone https://github.com/yyuu/pyenv.git /root/.pyenv
 ARG PYTHON_VERSION="3.6.6"
 RUN /root/.pyenv/bin/pyenv install ${PYTHON_VERSION}
 WORKDIR /root/
-RUN /root/.pyenv/bin/pyenv local ${PYTHON_VERSION}
+RUN /root/.pyenv/bin/pyenv global ${PYTHON_VERSION}
 RUN /root/.pyenv/shims/pip install six numpy wheel 

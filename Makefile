@@ -5,10 +5,11 @@ build:
 		-v `pwd`/scripts:/root/scripts \
 		-v `pwd`/tensorflow:/root/tensorflow \
 		-v `pwd`/out:/root/out \
+		-v `pwd`/bazelcache:/root/.cache/bazel \
 		tensorflow-cpu-py3.6.6 \
 		/root/scripts/build.sh
 clean:
-	rm -rf tensorflow/* tensorflow/.*
+	rm -rf tensorflow/* tensorflow/.* bazelcache/*
 list-pyversion:
 	docker run -it --rm \
 		tensorflow-cpu-py3.6.6 \
