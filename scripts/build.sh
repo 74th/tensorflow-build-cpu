@@ -1,14 +1,17 @@
 #!/bin/bash
 # -C no overwrite, -e stop at error, -u stop at undefined variable, -x print commands
-set -Ceux
-TENSORFLOW_VER=r1.8
-PYTHON_VER=3.7.0
+set -Cx
+if [ "${TENSORFLOW_VER}" == "" ]; then
+	TENSORFLOW_VER=r1.8
+fi
+if [ "${PYTHON_VER}" == "" ]; then
+	PYTHON_VER=3.7.0
+fi
 
 export PATH=~/.pyenv/bin:${PATH}
-#pyenv install ${PYTHON_VER}
 
-#mkdir -p tensorflow
-#git clone https://github.com/tensorflow/tensorflow.git -b ${TENSORFLOW_VER} tensorflow/
+mkdir -p tensorflow
+git clone https://github.com/tensorflow/tensorflow.git -b ${TENSORFLOW_VER} tensorflow/
 cd tensorflow/
 export PATH=/root/.pyenv/shims:$PATH
 

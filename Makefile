@@ -9,7 +9,7 @@ build:
 		tensorflow-cpu-py3.6.6 \
 		/root/scripts/build.sh
 clean:
-	rm -rf tensorflow/* tensorflow/.* bazelcache/*
+	sudo rm -rf tensorflow bazelcache out
 list-pyversion:
 	docker run -it --rm \
 		tensorflow-cpu-py3.6.6 \
